@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sports Injury Patterns Across Different Games</title>
+<style>
+/* Basic Reset */
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, sans-serif; }
+
+body {
+    background-image: url('https://png.pngtree.com/thumb_back/fh260/background/20230720/pngtree-a-3d-illustration-of-health-care-treatment-for-sports-related-injuries-image_3711240.jpg'); 
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    color: #fff;
+}
+
+/* Header */
+header {
+    width: 100%;
+    padding: 20px;
+    background: rgba(0,0,0,0.7);
+    text-align: center;
+    font-size: 2em;
+    font-weight: bold;
+    text-shadow: 2px 2px 5px #000;
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+}
+
+/* Footer */
+footer {
+    width: 100%;
+    padding: 15px;
+    background: rgba(0,0,0,0.7);
+    text-align: center;
+    font-weight: bold;
+    letter-spacing: 1px;
+    position: fixed;
+    bottom: 0;
+}
+
+/* Container */
+.container {
+    display: flex;
+    flex-direction: row;
+    height: calc(100vh - 140px);
+    margin-top: 80px;
+    padding-bottom: 50px;
+}
+
+/* Right Navigation */
+nav {
+    width: 250px;
+    background: rgba(0,0,0,0.7);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    border-radius: 10px 0 0 10px;
+    margin-left: auto;
+    transition: transform 0.3s ease;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 15px;
+    margin: 5px 0;
+    width: 100%;
+    border-radius: 5px;
+    transition: 0.3s;
+    text-align: left;
+    background: rgba(255,255,255,0.1);
+    backdrop-filter: blur(5px);
+}
+
+nav a:hover {
+    background: rgba(255,255,255,0.3);
+    color: #ff0;
+    font-weight: bold;
+}
+
+/* Content Area */
+.content {
+    flex: 1;
+    padding: 20px;
+    background: rgba(0,0,0,0.5);
+    overflow-y: auto;
+    border-radius: 10px;
+    margin-right: 20px;
+}
+
+.content h2 {
+    margin-bottom: 15px;
+    text-shadow: 1px 1px 3px #000;
+}
+
+iframe {
+    width: 100%;
+    height: 400px;
+    border: 2px solid #fff;
+    border-radius: 10px;
+    margin-top: 20px;
+}
+
+/* Team Members */
+.team {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.team-member {
+    background: rgba(255,255,255,0.1);
+    padding: 15px;
+    border-radius: 10px;
+    flex: 1 1 200px;
+    text-align: center;
+    transition: 0.3s;
+}
+
+.team-member:hover {
+    background: rgba(255,255,255,0.3);
+}
+
+/* Burger Menu */
+.burger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    margin-left: auto;
+}
+
+.burger div {
+    width: 25px;
+    height: 3px;
+    background-color: #fff;
+    margin: 4px;
+    transition: 0.4s;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        margin-top: 120px;
+    }
+
+    nav {
+        position: fixed;
+        top: 80px;
+        right: -250px;
+        width: 250px;
+        height: calc(100% - 80px);
+        z-index: 1001;
+        border-radius: 0;
+        margin-left: 0;
+    }
+
+    nav.show {
+        transform: translateX(-250px);
+    }
+
+    .burger {
+        display: flex;
+        position: fixed;
+        top: 25px;
+        right: 20px;
+        z-index: 1002;
+    }
+
+    .content {
+        margin-right: 0;
+        padding: 20px;
+    }
+}
+</style>
+</head>
+<body>
+
+<header>
+    Sports Injury Patterns Across Different Games
+<div class="burger" onclick="toggleNav()">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+</header>
+
+<div class="container">
+    <!-- Main Content -->
+    <div class="content" id="mainContent">
+        <h3>This project investigates the occurrence of sports injuries across different games. It analyzes data from various sports such as football, cricket, basketball, and athletics to identify common injury patterns, their causes, and preventive measures.</h3>
+    </div>
+
+    <!-- Right Navigation -->
+    <nav id="navPanel">
+        <a href="#" onclick="loadContent('abstract')">Abstract</a>
+        <a href="#" onclick="loadContent('introduction')">Introduction</a>
+        <a href="#" onclick="loadContent('existing')">Existing Research</a>
+        <a href="#" onclick="loadContent('proposed')">Proposed Study</a>
+        <a href="#" onclick="loadContent('technology')">Technology</a>
+        <a href="#" onclick="loadContent('analysis')">Analysis</a>
+        <a href="#" onclick="loadContent('team')">Team Members</a>
+    </nav>
+</div>
+
+<footer>Project Designed by BSc Students Under Guidance of Faculty -- 2025-2026</footer>
+
+<script>
+function loadContent(section){
+    const content = document.getElementById('mainContent');
+    switch(section){
+        case 'abstract':
+            content.innerHTML = `<h2>Abstract</h2>
+            <p><h3>This project focuses on analyzing sports injury patterns across different games. By studying datasets from football, cricket, basketball, and athletics, it identifies frequent injury zones, player positions most at risk, and suggests preventive approaches.</h3></p>`;
+            break;
+        case 'introduction':
+            content.innerHTML = `<h2>Introduction</h2>
+            <p><h3>Sports injuries are common among athletes and vary depending on the type of game. Understanding these patterns can help coaches, players, and medical staff take preventive actions. This project highlights similarities and differences in injury trends across games.</h3></p>`;
+            break;
+        case 'existing':
+            content.innerHTML = `<h2>Existing Research</h2>
+            <p><h3><ul>
+<li>Football: High ankle and knee injuries due to tackles.</li>
+<li>Cricket: Stress fractures and shoulder injuries in bowlers.</li>
+<li>Basketball: Frequent ankle sprains from jumps.</li>
+<li>Athletics: Hamstring pulls and shin splints due to overuse.</li>
+</ul></h3></p>`;
+            break;
+        case 'proposed':
+            content.innerHTML = `<h2>Proposed Study</h2>
+            <p><h3><ul>
+<li>Collect sports injury data from multiple sources.</li>
+<li>Classify injuries based on game type and player role.</li>
+<li>Apply statistical methods to compare injury frequency.</li>
+<li>Visualize results using heatmaps, charts, and graphs.</li>
+<li>Suggest game-specific injury prevention strategies.</li>
+</ul></h3></p>`;
+            break;
+        case 'technology':
+            content.innerHTML = `<h2>Technology Used</h2>
+            <h3><ul>
+<li>Python – Data Analysis & Visualization</li>
+<li>Pandas & NumPy – Dataset processing</li>
+<li>Matplotlib / Seaborn – Injury trend graphs</li>
+<li>Scikit-learn – Predictive injury modeling</li>
+<li>Jupyter Notebook – Research Environment</li>
+</ul></h3>`;
+            break;
+        case 'analysis':
+            content.innerHTML = `<h2>Analysis</h2>
+            <iframe src="analysis.html"></iframe>`; 
+            break;
+        case 'team':
+            content.innerHTML = `<h2>Team Members</h2>
+            <div class="team">
+                <table border="1" cellspacing="0" cellpadding="5">
+<tr>
+      <th>Hallticket Number</th>
+      <th>Student Names</th>
+    </tr>
+    <tr>
+      <td>Y233258012</td>
+      <td>GORIGE LALITHA (Team Leader)</td>
+    </tr>
+    <tr>
+      <td>Y233258024</td>
+      <td>NAGARAPU MANASA</td>
+    </tr>
+    <tr>
+      <td>Y233258025</td>
+      <td>NAGARAPU MOUNIKA</td>
+    </tr>
+    <tr>
+      <td>Y233258017</td>
+      <td>KOLLAPALLI SUMASRI</td>
+    </tr>
+    <tr>
+      <td>Y233258023</td>
+      <td>MOTURI THRAYAMBAKESWAR</td>
+    </tr>
+    <tr>
+      <td>Y233258037</td>
+      <td>SHAIK SHAHAMMADH</td>
+    </tr>
+  </table>
+            </div>`;
+            break;
+        default:
+            content.innerHTML = `<h2></h2>
+            <p>Select a section from the navigation panel.</p>`;
+    }
+
+    if(window.innerWidth <= 768){
+        document.getElementById('navPanel').classList.remove('show');
+    }
+}
+
+function toggleNav(){
+    const nav = document.getElementById('navPanel');
+    nav.classList.toggle('show');
+}
+</script>
+
+</body>
+</html>
